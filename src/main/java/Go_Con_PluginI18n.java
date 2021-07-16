@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
  * @author WatPowerUser
  */
 public class Go_Con_PluginI18n extends I18n{
-    public static final String BUNDLE_NAME = "FIRO_WAT_ForecastProcessor";
+    public static final String BUNDLE_NAME = "go-wat-consequences-plugin";
     private static final ResourceBundle SAMPLE_RESOURCE_BUNDLE;
     private ResourceBundle _resourceBundle;
     static

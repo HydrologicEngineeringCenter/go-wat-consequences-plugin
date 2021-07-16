@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class Go_Con_Alternative extends SelfContainedPluginAlt{
     private String _pluginVersion;
-    private static final String DocumentRoot = "FIRO_WFP_Alternative";
+    private static final String DocumentRoot = "Go_Con_Alternative";
     private static final String OutputVariableElement = "OutputVariables";
     private static final String AlternativeNameAttribute = "Name";
     private static final String AlternativeDescriptionAttribute = "Desc";

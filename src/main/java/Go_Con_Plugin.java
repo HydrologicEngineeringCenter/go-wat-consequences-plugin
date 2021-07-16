@@ -27,10 +27,10 @@ import java.util.List;
  * @author WatPowerUser
  */
 public class Go_Con_Plugin extends AbstractSelfContainedWatPlugin<Go_Con_Alternative> implements CreatableWatPlugin, OutputPlugin  {
-    public static final String PluginName = "FIRO_WFP";
-    private static final String _pluginVersion = "1.0.1";
-    private static final String _pluginSubDirectory = "FIRO_WFP";
-    private static final String _pluginExtension = ".FIROWFP";
+    public static final String PluginName = "go-wat-consequences-plugin";
+    private static final String _pluginVersion = "0.0.1";
+    private static final String _pluginSubDirectory = "go-wat-con";
+    private static final String _pluginExtension = ".gowatcon";
     /**
      * @param args the command line arguments
      */

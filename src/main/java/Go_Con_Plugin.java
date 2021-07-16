@@ -41,7 +41,7 @@ public class Go_Con_Plugin extends AbstractSelfContainedWatPlugin<Go_Con_Alterna
         super();
         setName(PluginName);
         setProgramOrderItem(new ProgramOrderItem(PluginName,
-                "A plugin to process forecast data for WAT",
+                "A tool to compute consequences for HEC-WAT",
                 false,1,"shortname","Images/fda/wsp.png"));
         WatPluginManager.register(this);
     }

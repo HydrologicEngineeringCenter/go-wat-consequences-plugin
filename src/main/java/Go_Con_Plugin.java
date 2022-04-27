@@ -27,7 +27,7 @@ import java.util.List;
  * @author WatPowerUser
  */
 public class Go_Con_Plugin extends AbstractSelfContainedWatPlugin<Go_Con_Alternative> implements CreatableWatPlugin, OutputPlugin  {
-    public static final String PluginName = "go-wat-consequences-plugin";
+    public static final String PluginName = "GoConPlugin";
     private static final String _pluginVersion = "0.0.1";
     private static final String _pluginSubDirectory = "go-wat-con";
     private static final String _pluginExtension = ".gowatcon";

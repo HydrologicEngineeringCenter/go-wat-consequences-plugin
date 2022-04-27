@@ -14,9 +14,9 @@ import java.util.ResourceBundle;
 public class Go_Con_PluginMessages {
     public static final String Bundle_Name = Go_Con_PluginI18n.BUNDLE_NAME;
     private static final ResourceBundle RESOURCE_BUNDLE = ResourceBundle.getBundle(Bundle_Name);
-    public static final String Plugin_Name = "Name";
-    public static final String Plugin_Description = "Description";
-    public static final String Plugin_Short_name = "ShortName";
+    public static final String Plugin_Name = "Go_Con_Plugin.Name";
+    public static final String Plugin_Description = "Go_Con_Plugin.Description";
+    public static final String Plugin_Short_name = "Go_Con_Plugin.ShortName";
     private Go_Con_PluginMessages(){
         super();
     }

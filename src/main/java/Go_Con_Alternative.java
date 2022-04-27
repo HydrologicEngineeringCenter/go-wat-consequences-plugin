@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import com.rma.client.Browser;
 import com.rma.io.RmaFile;
+import com.rma.model.Project;
 import hec.data.Parameter;
 import hec.model.OutputVariable;
 import hec2.plugin.model.ComputeOptions;
@@ -14,7 +15,6 @@ import org.jdom.Document;
 import org.jdom.Element;
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  *
  * @author WatPowerUser
@@ -26,11 +26,15 @@ public class Go_Con_Alternative extends SelfContainedPluginAlt{
     private static final String AlternativeNameAttribute = "Name";
     private static final String AlternativeDescriptionAttribute = "Desc";
     private ComputeOptions _computeOptions;
+    private String _terrainPath ;
+    private String _nsipath;
+    private String _output;
+    private String _resultsPath;
+    int _espg = 4326;
     public Go_Con_Alternative(){
         super();
     }
     public Go_Con_Alternative(String name){
-
         this();
         setName(name);
     }
@@ -58,6 +62,18 @@ public class Go_Con_Alternative extends SelfContainedPluginAlt{
     }
     public void setComputeOptions(ComputeOptions opts){
         _computeOptions = opts;
+        hec2.wat.model.ComputeOptions wco = (hec2.wat.model.ComputeOptions) opts;
+        String pathToLifecycleDSS = wco.getDssFilename();
+        String resultsPath = pathToLifecycleDSS.substring(0,pathToLifecycleDSS.lastIndexOf("\\"));
+        _resultsPath = resultsPath + "\\event " + wco.getCurrentEventNumber() + "\\RAS\\Grapevine_TX00005.p15.hdf";
+        //get the project directory
+        Project proj = Browser.getBrowserFrame().getCurrentProject();
+        String dir = proj.getProjectDirectory();
+        if(dir == null){return;}
+        _output = resultsPath + "\\event " + wco.getCurrentEventNumber() + "\\Consequences.gpkg";
+        _terrainPath = dir + "\\RAS\\Terrain\\Terrain_With_Bathymetry_FFRD.vrt";
+        _nsipath = dir + "\\NSI\\TrinitySIReduced.gpkg";
+        _espg = 4326;
     }
     @Override
     public boolean isComputable() {
@@ -65,6 +81,7 @@ public class Go_Con_Alternative extends SelfContainedPluginAlt{
     }
     @Override
     public boolean compute() {
+        GoInlandDataset.Compute(_resultsPath,_terrainPath,_nsipath,_output,_espg);
         return true;
     }
     @Override
@@ -104,5 +121,4 @@ public class Go_Con_Alternative extends SelfContainedPluginAlt{
         return true;
     }
     boolean computeOutputVariables(List<OutputVariable> list) { return true; }
-
 }
